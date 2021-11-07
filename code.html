@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
 <head>
-    <title>PageTitle</title>
+    <title>LandScroller</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -28,7 +28,7 @@
     <div class="container-fluid">
         <div class="navbar-brand fontP mx-sm-5 d-flex align-items-center">
             <img src="img/infinityW.png" class='mx-1' height='25px' width='35px'>
-           HUNDO</div>
+           LandScroller</div>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
             aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -58,12 +58,84 @@
 
     <main class="flex-shrink-0">
        <div class="container">
-           <h3 class="border-1 border-dark border-bottom py-3">code</h3>
+           <h3 class="border-1 border-dark border-bottom py-3 text-end">the code of LandScroller</h3>
          <div class="row row-cols-1 row-cols-sm-2">
              <div class="col-sm-8">
                 <pre class="line-numbers">
                     <code class="language-javascript">
-                        alert('a')
+                        const Landscapes=[
+  {name:' Zhangjiajie’s towering peaks',location:' China',img:'img/peaks.jpg'},
+  {name:'Badab surt',location:'Iran',img:'img/Surt.jpg'},
+  {name:'kronebreen glacier',location:'Norway',img:'img/glacier.jpg'},
+  {name:'Gerlache strait',location:'Antarctica',img:'img/strait.jpg'}, 
+  {name:'Sonoran desert',location:'United States',img:'img/desert.jpg'}, 
+]
+let num=0;
+const Land=document.getElementById('Land');
+Land.innerHTML=`<ul class='list-group'>
+<div><img style="height:300px;width:500px" class="img-fluid" src='${Landscapes[num].img}'></div>
+</br>
+<li class='list-group-item'>landscape: ${Landscapes[num].name}</li>
+<br/>
+<li class='list-group-item'>location: ${Landscapes[num].location}</li>
+</ul>
+
+`
+const nextB=document.getElementById('next')
+const beforeB=document.getElementById('before')
+
+if(num==0){
+ beforeB.disabled=true
+}else if(num==Landscapes.length-1){
+ nextB.disabled=true
+}
+
+function iterator(Landscapes){
+ return{
+   next:function(){
+     return num<Landscapes.length?{value:num++,done:false}:{done:true}}
+   ,
+   before:function(){
+     return num>0?{value:num--,done:false}:{done:true}
+   }
+ }}
+
+const change=iterator(Landscapes)
+
+document.querySelector('.btn-group').addEventListener('click',(e)=>{
+ if(e.target==nextB){
+   change.next()
+   Land.innerHTML=`<ul class='list-group'>
+   <div><img style="height:300px;width:500px" class="img-fluid" src='${Landscapes[num].img}'></div></br>
+   <li class='list-group-item'>landscape: ${Landscapes[num].name}</li>
+   <br/>
+   <li class='list-group-item'>location: ${Landscapes[num].location}</li>
+   </ul>`
+ }
+ if(e.target==beforeB){
+   change.before()
+   Land.innerHTML=`<ul class='list-group'>
+   <div><img style="height:300px;width:500px" class="img-fluid" src='${Landscapes[num].img}'></div></br>
+   <li class='list-group-item'>landscape: ${Landscapes[num].name}</li>
+   <br/>
+   <li class='list-group-item'>location: ${Landscapes[num].location}</li>
+   </ul>`
+ }
+ if(num==0){
+   beforeB.disabled=true
+ }else{
+   beforeB.disabled=false
+   nextB.disabled=false
+ }
+ if(num==Landscapes.length-1){
+   nextB.disabled=true
+
+ }else{
+   nextB.disabled=false
+ }
+ 
+})
+
                     </code>
                 </pre>
              </div>

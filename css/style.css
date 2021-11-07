@@ -1,10 +1,16 @@
 :root{
-  --primary:#1d5888;
-  --secondary:#ff993b;
+  --primary:#254832;
+  --secondary:#8c3f0d;
 }
 main>.container {
   padding: 60px 15px 0;
   margin-bottom: 5rem;
+}
+button{
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  color:white;
 }
 .sticky-nav {
   position: fixed;
@@ -23,7 +29,7 @@ main>.container {
 }
 
 h1,h2,h3,h4,h5,h6{
-  color:var(--primary);
+  color:var(--secondary);
   text-transform: uppercase;
   font-family: 'Philosopher', sans-serif;
 
