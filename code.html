@@ -93,10 +93,10 @@ if(num==0){
 function iterator(Landscapes){
  return{
    next:function(){
-     return num<Landscapes.length?{value:num++,done:false}:{done:true}}
-   ,
+     return num < Landscapes.length?{value:num++,done:false}:{done:true}}
+    
    before:function(){
-     return num>0?{value:num--,done:false}:{done:true}
+     return num > 0?{value:num--,done:false}:{done:true}
    }
  }}
 
@@ -139,8 +139,63 @@ document.querySelector('.btn-group').addEventListener('click',(e)=>{
                     </code>
                 </pre>
              </div>
-             <div class="col-sm-4 order-first order-sm-last align-items-center d-flex">
-                    dfs
+             <div class="col-sm-4 order-first order-sm-last ">
+                    <div class="row mb-sm-5">
+                      <div class="col mt-sm-5 mb-sm-5">
+                        building an array for all 5 landscapes.
+                      </div>
+                    </div>
+                    <div class="row mt-sm-5 mb-sm-5">
+                      <div class="col mt-sm-5 mb-sm-5">
+                        building landing page for our app with the first class in the array.
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col mt-sm-5">
+                      </div>
+                    </div>
+                     <div class="row mt-sm-5">
+                      <div class="col mt-sm-5">
+                        calling each button and disable the before button.
+                      </div>
+                    </div> 
+                    <div class="row">
+                      <div class="col mt-sm-5">
+                      
+                      </div>
+                    </div>
+                    <div class="row mt-sm-5">
+                      <div class="col mt-sm-5">
+                        using iterator.
+                      </div>
+                    </div> 
+                    <div class="row mt-sm-5">
+                      <div class="col mt-sm-5">
+                      </div>
+                    </div> 
+                    <div class="row mt-sm-5 mb-sm-5">
+                      <div class="col mt-sm-5 mb-sm-5">
+                        using iterator for next button.
+                      </div>
+                    </div> 
+                    <div class="row mt-sm-5">
+                      <div class="col mt-sm-5">
+                      </div>
+                    </div> 
+                    <div class="row mt-sm-5 mb-sm-5">
+                      <div class="col mt-sm-5">
+                        using iterator for before button.
+                      </div>
+                    </div>
+                    <div class="row mt-sm-5">
+                      <div class="col mt-sm-5">
+                      </div>
+                    </div> 
+                    <div class="row mt-sm-5">
+                      <div class="col mt-sm-5">
+                        disabling buttons for end of the list.
+                      </div>
+                    </div> 
              </div>
          </div>
        </div>
